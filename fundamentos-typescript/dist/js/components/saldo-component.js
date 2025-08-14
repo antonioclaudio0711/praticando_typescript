@@ -1,6 +1,6 @@
 import { Conta } from "../types/Conta.js";
 import { FormatoData } from "../types/FormatoData.js";
-import { Formatters } from "../utils/formatters.js";
+import { Formatters } from "../utils/Formatters.js";
 const formatador = new Formatters();
 const conta = new Conta();
 const elementoSaldo = document.querySelector(".cc .valor");
