@@ -1,4 +1,4 @@
-export enum FormatoData {
+export enum FormatoDataEnum {
     FORMATO_PADRAO = "DD/MM/AAAA",
     FORMATO_DIA_SEMANA_DIA_MES_ANO = "DIA_SEMANA, DD/MM/AAAA",
     FORMATO_DIA_MES = "DD/MM",

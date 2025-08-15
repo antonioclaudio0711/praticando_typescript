@@ -1,16 +1,15 @@
-import { Conta } from "../types/Conta.js";
-import { FormatoData } from "../types/FormatoData.js";
-import { GrupoTransacao } from "../types/GrupoTransacao.js";
+import conta from "../types/Conta.js";
+import { FormatoDataEnum } from "../types/FormatoDataEnum.js";
+import { GrupoTransacaoType } from "../types/GrupoTransacaoType.js";
 import { Formatters } from "../utils/Formatters.js";
 
 const elementoRegistroTransacoesExtrato: HTMLElement = document.querySelector(".extrato .registro-transacoes");
 
 renderizarExtrato();
 function renderizarExtrato(): void {
-    const conta: Conta = new Conta();
     const formatador: Formatters = new Formatters();
 
-    const gruposTransacoes: Array<GrupoTransacao> = conta.retornaGruposTransacoes();
+    const gruposTransacoes: Array<GrupoTransacaoType> = conta.retornaGruposTransacoes();
 
     elementoRegistroTransacoesExtrato.innerHTML = "";
 
@@ -25,7 +24,7 @@ function renderizarExtrato(): void {
                         <span class="tipo">${transacao.tipoTransacao}</span>
                         <strong class="valor">${formatador.formatarSaldo(transacao.valorTransacao)}</strong>
                     </div>
-                    <time class="data">${formatador.formatarData(transacao.dataTransacao, FormatoData.FORMATO_DIA_MES)}</time>
+                    <time class="data">${formatador.formatarData(transacao.dataTransacao, FormatoDataEnum.FORMATO_DIA_MES)}</time>
                 </div>
             `;
         }

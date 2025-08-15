@@ -1,6 +1,6 @@
-import { Conta } from "../types/Conta.js";
-import { TipoTransacao } from "../types/TipoTransacao.js";
-import { Transacao } from "../types/Transacao.js";
+import conta from "../types/Conta.js";
+import { TipoTransacaoEnum } from "../types/TipoTransacaoEnum.js";
+import { TransacaoType } from "../types/TransacaoType.js";
 import ExtratoComponent from "./extrato-component.js";
 import SaldoComponent from "./saldo-component.js";
 
@@ -19,19 +19,18 @@ elementoFormulario.addEventListener("submit", function (event) {
         const inputValorTransacao = elementoFormulario.querySelector("#valor") as HTMLInputElement;
         const inputDataTransacao = elementoFormulario.querySelector("#data") as HTMLInputElement;
 
-        let tipoTransacao: TipoTransacao = inputTipoTransacao.value as TipoTransacao;
+        let tipoTransacao: TipoTransacaoEnum = inputTipoTransacao.value as TipoTransacaoEnum;
         let valorTransacao: number = inputValorTransacao.valueAsNumber;
 
         // Adição de " 00:00:00" para o JS não considerar um dia a menos na determinação das datas
         let dataTransacao: Date = new Date(inputDataTransacao.value + " 00:00:00");
 
-        const novaTransacao: Transacao = {
+        const novaTransacao: TransacaoType = {
             tipoTransacao: tipoTransacao,
             valorTransacao: valorTransacao,
             dataTransacao: dataTransacao
         }
 
-        const conta: Conta = new Conta();
         conta.registrarTransacao(novaTransacao);
 
         SaldoComponent.atualizar();

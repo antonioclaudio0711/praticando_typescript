@@ -1,17 +1,16 @@
-import { Conta } from "../types/Conta.js";
-import { FormatoData } from "../types/FormatoData.js";
+import conta from "../types/Conta.js";
+import { FormatoDataEnum } from "../types/FormatoDataEnum.js";
 import { Formatters } from "../utils/Formatters.js";
 const formatador = new Formatters();
-const conta = new Conta();
 const elementoSaldo = document.querySelector(".cc .valor");
 const elementoData = document.querySelector(".block-saldo time");
 renderizarSaldo();
 if (elementoData != null) {
-    elementoData.textContent = formatador.formatarData(conta.retornaDataAcesso(), FormatoData.FORMATO_DIA_SEMANA_DIA_MES_ANO);
+    elementoData.textContent = formatador.formatarData(conta.retornaDataAcesso(), FormatoDataEnum.FORMATO_DIA_SEMANA_DIA_MES_ANO);
 }
 function renderizarSaldo() {
     if (elementoSaldo != null) {
-        elementoSaldo.textContent = formatador.formatarSaldo(conta.getSaldo());
+        elementoSaldo.textContent = formatador.formatarSaldo(conta.saldo);
     }
 }
 const SaldoComponent = {

@@ -4,6 +4,7 @@
         "outDir": "./dist/js",
         "noEmitOnError": true,
         "noImplicitAny": true,
+        "experimentalDecorators": true,
     },
     "include": [
         "./src/**/*"
